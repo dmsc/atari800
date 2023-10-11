@@ -87,6 +87,8 @@ atari800_SOURCES = \
 	util.c util.h
 atari800_LDADD =
 
+atari800_SOURCES += a8pico.c a8pico.h
+
 if A8_USE_SDL
 atari800_SOURCES += sdl/init.c sdl/init.h
 if CONFIGURE_HOST_WIN

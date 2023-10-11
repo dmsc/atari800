@@ -132,6 +132,9 @@
 #ifdef AF80
 #include "af80.h"
 #endif
+#ifdef A8PICO
+#include "a8pico.h"
+#endif
 #ifdef BIT3
 #include "bit3.h"
 #endif
@@ -793,6 +796,9 @@ int Atari800_Initialise(int *argc, char *argv[])
 #ifdef AF80
 		|| !AF80_Initialise(argc, argv)
 #endif
+#ifdef A8PICO
+		|| !A8Pico_Initialise(argc, argv)
+#endif
 #ifdef BIT3
 		|| !BIT3_Initialise(argc, argv) 
 #endif
@@ -904,7 +910,13 @@ int Atari800_Initialise(int *argc, char *argv[])
 		AF80_InsertRightCartridge();
 	}
 #endif
-	
+
+#ifdef A8PICO
+        /* Insert A8PICO custom ROM */
+	if (A8Pico_enabled) {
+		A8Pico_InsertCart();
+	}
+#endif
 	/* Load Atari executable, if any */
 	if (run_direct != NULL)
 		BINLOAD_Loader(run_direct);

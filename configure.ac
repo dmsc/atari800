@@ -730,6 +730,7 @@ if [[ "$a8_target" = default ]]; then
             WANT_PAL_BLENDING=yes
             AC_DEFINE(PBI_PROTO80,1,[A prototype 80 column card for the 1090 expansion box.])
             AC_DEFINE(AF80,1,[The Austin Franklin 80 column card.])
+            AC_DEFINE(A8PICO,1,[The A8PIcoCart.])
             AC_DEFINE(BIT3,1,[The Bit3 Full View 80 column card.])
             ;;
         dosvga)
